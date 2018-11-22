@@ -1,11 +1,20 @@
-name = input('what is your name\n')
-age = int(input('what is your age\n'))
-new_age = age + 1
-if age < 21:
-    print('You are',age,'years old.','You are just a baby', name+'.','Naxt year you will be',new_age,'years old.')
+import time
 
-elif age == 21:
-    print('You are',age,'years old.','You can drink now', name+'.','Naxt year you will be',new_age,'years old.')
+counter = 5
+start = time.time()
+while True:
+    ### Do other stuff, it won't be blocked
+    time.sleep(0.1)
+    print("looping...")
 
-else:
-    print('You are',age,'years old.','Wow! You are old', name+'.','Naxt year you will be',new_age,'years old.')
+    ### When 1 sec or more has elapsed...
+    if time.time() - start > 1:
+        start = time.time()
+        counter = counter - 1
+
+        ### This will be updated once per second
+        print("%s seconds remaining"%(counter))
+
+        ### Countdown finished, ending loop
+        if counter <= 0:
+            break
